@@ -14,7 +14,6 @@ Future<void> main() async{
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,15 +22,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: const LoginScreen(),
-      //if routes are not defined then whatever inside home is displayed first
     );
   }
 }
 
 
 
-
-
-//in signup we are taking data from user and we are storing that  in cloiud firestore 
-//fir usko homepage pe display krenege
-//FOR THIS WE WILLL CREATE SOME MODELSq
