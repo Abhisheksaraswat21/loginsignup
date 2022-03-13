@@ -19,7 +19,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   //form key
   final _formkey = GlobalKey<FormState>();
 
-//text box se text lene ke liye
   final firstNameEditingController = new TextEditingController();
   final secondNameEditingController = new TextEditingController();
   final emailEditingController = new TextEditingController();
@@ -34,21 +33,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: firstNameEditingController,
       keyboardType: TextInputType.name,
-// The type of keyboard to use for editing the text.
-// Defaults to TextInputType.text if maxLines is one and TextInputType.multiline otherwise.
+
 
 //validator: {} (),
       validator: (value) {
         RegExp regex = RegExp(r'^.{3,}$');
-        //ye check krega ki atleat 3characters to ho
 
         if (value!.isEmpty) {
           return ("First Name cannot be empty");
         }
         if (!regex.hasMatch(value)) {
           return ("Enter Valid Name (Min. 3 characters)");
-          //min 6 characters are required for firebase to cereate an account with email and
-          //password
+         
         }
         return null;
       },
@@ -56,12 +52,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onSaved: (value) {
         firstNameEditingController.text = value!;
       },
-//this willl be saving a value whenever a user is tapp ing in the field
-//An optional method to call with the final value when the form is saved via FormState.save.
+
 
       textInputAction: TextInputAction.next,
-      //whenever we will be cilcking the email input field , we will be getitng a next button on the
-      //low right bottom  of the screen..ye keyboard ke right bottom me aata hai
+    
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.account_circle),
@@ -79,8 +73,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: secondNameEditingController,
       keyboardType: TextInputType.name,
-// The type of keyboard to use for editing the text.
-// Defaults to TextInputType.text if maxLines is one and TextInputType.multiline otherwise.
+
 
 //validator: {} (),
       validator: (value) {
@@ -92,12 +85,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onSaved: (value) {
         secondNameEditingController.text = value!;
       },
-//this willl be saving a value whenever a user is tapp ing in the field
-//An optional method to call with the final value when the form is saved via FormState.save.
+
 
       textInputAction: TextInputAction.next,
-      //whenever we will be cilcking the email input field , we will be getitng a next button on the
-      //low right bottom  of the screen..ye keyboard ke right bottom me aata hai
+     
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.account_circle),
@@ -115,13 +106,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: emailEditingController,
       keyboardType: TextInputType.emailAddress,
-// The type of keyboard to use for editing the text.
-// Defaults to TextInputType.text if maxLines is one and TextInputType.multiline otherwise.
-
+ 
 //validator: {} (),
 
       validator: (value) {
-        //validator is having a value like onsave is having
         if (value!.isEmpty) {
           return ("Please enter your email");
         }
@@ -135,12 +123,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onSaved: (value) {
         emailEditingController.text = value!;
       },
-//this willl be saving a value whenever a user is tapp ing in the field
-//An optional method to call with the final value when the form is saved via FormState.save.
+
 
       textInputAction: TextInputAction.next,
-      //whenever we will be cilcking the email input field , we will be getitng a next button on the
-      //low right bottom  of the screen..ye keyboard ke right bottom me aata hai
+      
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.mail),
@@ -168,7 +154,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         }
         if (!regex.hasMatch(value)) {
           return ("Enter Valid Password(Min. 6 Characters)");
-          //min 6 characters are required for firebase to cereate an account with email and
           //password
         }
       },
@@ -176,12 +161,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onSaved: (value) {
         passwordEditingController.text = value!;
       },
-//this willl be saving a value whenever a user is tapp ing in the field
-//An optional method to call with the final value when the form is saved via FormState.save.
+
 
       textInputAction: TextInputAction.next,
-      //whenever we will be cilcking the email input field , we will be getitng a next button on the
-      //low right bottom  of the screen..ye keyboard ke right bottom me aata hai
+     
 
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.vpn_key),
@@ -199,14 +182,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: confirmPasswordEditingController,
       obscureText: true,
-// The type of keyboard to use for editing the text.
-// Defaults to TextInputType.text if maxLines is one and TextInputType.multiline otherwise.
+
 
 //validator: {} (),
       validator: (value) {
         if (confirmPasswordEditingController.text !=
             confirmPasswordEditingController.text ) {
-          //incase password 6 se chota hai and match ni krra value se
 
           return "Password don't match";
         }
@@ -216,13 +197,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       onSaved: (value) {
         confirmPasswordEditingController.text = value!;
       },
-//this willl be saving a value whenever a user is tapp ing in the field
-//An optional method to call with the final value when the form is saved via FormState.save.
+
 
       textInputAction: TextInputAction.done,
-      //whenever we will be cilcking the email input field , we will be getitng a next button on the
-      //low right bottom  of the screen..ye keyboard ke right bottom me aata hai
-
+      
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.vpn_key),
         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
@@ -235,14 +213,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     final signUpButton = Material(
         elevation: 5,
-//dnt know
 
         borderRadius: BorderRadius.circular(30),
         color: Colors.redAccent,
         child: MaterialButton(
             padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
             minWidth: MediaQuery.of(context).size.width,
-            //now its width will be equal to our column ..ye samjh ni aaya clearly
             onPressed: () {
               signUp(
                   emailEditingController.text, passwordEditingController.text);
@@ -257,21 +233,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             )));
 
     return Scaffold(
-//scsaffold return hora hai yhya pe..iske properties pdo aur ye samajh aajayega easy hai
 
       backgroundColor: Colors.white,
 
       appBar: AppBar(
 
-//appbar is basically top bar of scaffold and here we are creating a back button
 
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
               icon: Icon(Icons.arrow_back, color: Colors.red),
               onPressed: () {
-                //this will take back to the root screen
-                ////mtlb ki login page pe wapas bhej dega
+              
                 Navigator.of(context).pop();
               })),
 
@@ -298,8 +271,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 fit: BoxFit.contain,
                               )),
                           SizedBox(height: 45),
-//ye bas humne icon email box aur password is sbke beech me spacing dene ke liye
-//create kia hua hai
+
                           firstNameField,
                           SizedBox(height: 20),
 
@@ -328,12 +300,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   void signUp(String email, String password) async {
     if (_formkey.currentState!.validate()) {
-//if validation of formkey is successful, then we have to wait for authentication
 
       await _auth
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => 
-                //we created a funtion to store details on firestore
                {postDetailsToFirestore()})
               
           .catchError((e) {
@@ -343,20 +313,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
  postDetailsToFirestore() async {
-//calling our firestore
-//calling our user models
-//sending these values
 
-//calling our firestore
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
     User? user = _auth.currentUser;
-    //this will be our current user
-
-    //calling our user models
+   
 
     UserModel userModel = UserModel();
-   // writing all the values
     userModel.email = user!.email;
     userModel.uid = user.uid;
     userModel.firstName = firstNameEditingController.text;
@@ -368,25 +331,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
 
 
-//here user is current user and we are setting values in the database
 
      await firebaseFirestore
         .collection("users")
-//this will create a collection of users
         .doc(user.uid)
-        //it will so in the uid of users
-        //it will go to this document id
+     
 
          .set(userModel.toMap());
-    //isse sara data store hojayega jo bhi upar specify kia hai humne
-    //ye tomap se data store krra hai
+ 
 
   Fluttertoast.showToast(msg: "Account created successfully :) ");
 
     Navigator.pushAndRemoveUntil(
         (context),
        MaterialPageRoute(builder: (context) => const HomeScreen()),
-        //ye hume homescreen pe bhejega
          (route) => false);
   }
 }
